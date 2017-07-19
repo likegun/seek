@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="app">
-    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+    <el-form :inline="true" :model="newForm" class="demo-form-inline">
       <el-form-item label="标题">
         <el-input v-model="newForm.title" placeholder="请输入标题"></el-input>
       </el-form-item>
@@ -39,5 +39,8 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <!-- 引入组件库 -->
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/js/api.js"></script>
   <script src="/js/index.js"></script>
 </html>

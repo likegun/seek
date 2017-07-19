@@ -34,7 +34,10 @@ new Vue({
       if(key === '')
         return this.list = [];
 
-      this.list = items.filter(e => e.title.includes(key) || e.detail.includes('key'));
+      getItems({ key: key.replace(/[\s\n]*/g, '') }, this)
+        .then(res => {
+          this.list = res.data.data
+        })
     },
     add() {
       const newItem = this.newForm;
