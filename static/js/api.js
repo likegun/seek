@@ -1,4 +1,4 @@
-const server = 'http://localhost:6002';
+const server = 'http://localhost:3000';
 
 const post = (url, params, data, { vue = null } = {}) => {
 	let user = sessionStorage.getItem('user');
@@ -39,11 +39,6 @@ const put = (url, params, data, { vue = null } = {}) => {
 };
 
 const get = (url, params, { vue = null } = {}) => {
-	// let user = sessionStorage.getItem('user');
-	// if(user) {
-	// 	user = JSON.parse(user);
-	// 	params.Token = user.Token;
-	// }
 	return axios.get(`${server}${url}`, { params })
 		.then(res => {
 			if(res.data && res.data.code === 200)
@@ -60,4 +55,8 @@ const get = (url, params, { vue = null } = {}) => {
 
 const getItems = (params, vue) => {
   return get('/items', params, { vue });
+}
+
+const postItem = (item, vue) => {
+	return post('/item', {}, item, { vue });
 }

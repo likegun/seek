@@ -7,19 +7,38 @@
 </head>
 <body>
   <div id="app">
-    <el-form :inline="true" :model="newForm" class="demo-form-inline">
-      <el-form-item label="标题">
-        <el-input v-model="newForm.title" placeholder="请输入标题"></el-input>
-      </el-form-item>
-      <el-form-item label="详情">
-        <el-input v-model="newForm.detail" placeholder="请输入详细信息"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="add">new</el-button>
-      </el-form-item>
-    </el-form>
+		<!-- 新建表单 -->
+		<el-row>
+		  <el-col :span="8" :offset="8">
+				<el-form :inline="true" :model="newForm" class="demo-form-inline">
+					<el-row>
+					  <el-col :span="12">
+							<el-form-item label="标题">
+								<el-input
+								autosize
+								v-model="newForm.title"
+								placeholder="请输入标题"
+								type="textarea"
+								></el-input>
+							</el-form-item>
+						</el-col>
+					  <el-col :span="12">
+							<el-form-item label="详情">
+								<el-input
+								autosize
+								v-model="newForm.detail"
+								placeholder="请输入详细信息"
+								type="textarea"
+								@keyup.enter.native="add"
+								></el-input>
+							</el-form-item>
+						</el-col>
+					</el-row>
+				</el-form
+			</el-col>
+			<el-input v-model="searchForm.key" @change="search" placeholder="请输入内容"></el-input>
+		</el-row>
 
-    <el-input v-model="searchForm.key" @change="search" placeholder="请输入内容"></el-input>
     <el-table
       v-if="list.length > 0"
       :data="list"

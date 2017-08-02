@@ -34,14 +34,15 @@ new Vue({
       if(key === '')
         return this.list = [];
 
-      getItems({ key: key.replace(/[\s\n]*/g, '') }, this)
+      getItems({ key: key.replace(/[\r\n]*/g, '') }, this)
         .then(res => {
+					console.log(res.data.data[0].detail)
           this.list = res.data.data
         })
     },
     add() {
       const newItem = this.newForm;
-      items.push(newItem);
+			postItem(newItem, this);
       this.newForm = {
         title: '',
         detail: ''
