@@ -48,8 +48,10 @@
         label="标题">
       </el-table-column>
       <el-table-column
-        prop="detail"
         label="详情">
+        <template scope="scope">
+          <pre>{{scope.row.detail}}</pre>
+        </template>
       </el-table-column>
     </el-table>
   </div>

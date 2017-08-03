@@ -36,7 +36,6 @@ new Vue({
 
       getItems({ key: key.replace(/[\r\n]*/g, '') }, this)
         .then(res => {
-					console.log(res.data.data[0].detail)
           this.list = res.data.data
         })
     },
